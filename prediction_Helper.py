@@ -2,7 +2,7 @@
 from joblib import load
 import pandas as pd
 
-model = load("model.pkl")
+
 
 model_rest = load("artifacts/model_rest.joblib")
 model_young = load("artifacts/model_young.joblib")
