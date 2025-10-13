@@ -1,11 +1,3 @@
-import subprocess
-import sys
-
-try:
-    import joblib
-except ModuleNotFoundError:
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "joblib==1.5.2"])
-    import joblib
 
 import streamlit as st
 from prediction_Helper import predict

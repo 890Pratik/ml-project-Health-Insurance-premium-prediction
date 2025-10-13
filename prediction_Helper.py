@@ -1,12 +1,3 @@
-import subprocess
-import sys
-
-# Ensure joblib is installed
-try:
-    import joblib
-except ModuleNotFoundError:
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "joblib==1.5.2"])
-    import joblib
 
 from joblib import load
 import pandas as pd
