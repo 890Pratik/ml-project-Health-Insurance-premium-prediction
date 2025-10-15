@@ -2,6 +2,12 @@
 import streamlit as st
 from prediction_Helper import predict
 
+try:
+    import joblib
+except ImportError:
+    st.error("⚠️ joblib not found — check requirements.txt or reinstall dependencies.")
+    raise
+
 st.title("Health Insurance Cost predictor ")
 
 categorical_options = {
