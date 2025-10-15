@@ -8,7 +8,61 @@ except ImportError:
     st.error("⚠️ joblib not found — check requirements.txt or reinstall dependencies.")
     raise
 
-st.title("Health Insurance Cost predictor ")
+# --- Custom Styling ---
+st.markdown("""
+    <style>
+    /* Title */
+    .big-title {
+        font-size: 42px;
+        color: #2E8B57;
+        text-align: center;
+        font-weight: 800;
+        padding-bottom: 10px;
+    }
+    .subtitle {
+        font-size: 20px;
+        color: #555;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+
+    /* Buttons */
+    div.stButton > button:first-child {
+        background-color: #2E8B57;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+    div.stButton > button:hover {
+        background-color: #256f48;
+    }
+
+    /* Inputs */
+    .stSelectbox, .stNumberInput {
+        border-radius: 8px !important;
+    }
+
+    /* Prediction result box */
+    .result-box {
+        background-color: #e6f9f0;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .result-text {
+        color: #2E8B57;
+        font-size: 24px;
+        font-weight: 600;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+st.markdown('<div class="big-title">💚 Health Insurance Cost Predictor</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">Estimate your insurance cost in seconds</div>', unsafe_allow_html=True)
+
 
 categorical_options = {
     'Gender': ['Male', 'Female'],
@@ -78,4 +132,12 @@ input_dict = {
 
 if st.button("Predict"):
     prediction = predict(input_dict)
-    st.success(f"Predicted Health Insurannce Cost: {prediction}")
+    st.markdown(
+    f"""
+    <div class="result-box">
+        <div class="result-text">Predicted Health Insurance Cost: ₹{prediction}</div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
